@@ -14,15 +14,24 @@
     - SQLite
 
 ### Local Setup
-- Clone repository
-- Setup virtual environment:
-	- Tener la version instalada de python 3.8.2.Descargar " Windows x86-64 executable installer " de https://www.python.org/downloads/release/python-382/
-	- "Git bash here" dentro de la carpeta
-	- Verificar la version de python con `python --version`.Si tiene varias versiones le aparezca la ultima que instaló,no es un problema si ya tiene la version 3.8.2 en su sistema.
-	- Instalar pipenv con el siguiente comando : `pip3 install pipenv`
-	- Ejecute el comando `pipenv shell` para activar el entorno virtual.
-	- Ejecute el comando `pipenv install` para la instalacion de las dependencias del pipfile.
-- run `python manage.py runserver`.
-- Go to `127.0.0.1::8000` in your web browser.
+- 1. Clonar el repositorio
+- 2. Abrir el terminal bash en el Visual Code (recomendado) , o hacer "Git bash here" dentro de la carpeta clonada
+- 3. Verificar la version de python con `python --version`.
+	- Si tiene varias versiones le aparecerá la ultima que instaló.No es un problema,pero tambien debe tener la version 3.8.2 para activar el entorno virtual de este proyecto.
+	- Para tener la version de python 3.8.2., seleccionar "Windows x86-64 executable installer " de https://www.python.org/downloads/release/python-382/ para descargar e instalelo.
+- 5. Configurar el entorno virtual:	
+	- a. Ejecute el comando `pipenv shell` para activar el entorno virtual.Ejecutelo denuevo las veces que quiera verificar que está activo.
+	- b. Puede verificar la version de python del entorno virtual con `python --version`,y deberá mostrar la version 3.8.2.
+	- c. Ejecute el comando `pipenv install` para la instalacion de las dependencias del pipfile.
+- 6. Run `python manage.py runserver`.
+- 7. Go to `127.0.0.1::8000` in your web browser.
 
+#### Observaciones y Comandos de pipenv : 
+	- Si el comando pipenv no funciona,instalelo con el siguiente comando : `pip3 install pipenv`.
+	- Si desea salir del entorno virtual ejecute `exit`,para volver a entrar solo use `pipenv shell`
+	- Para ver dependencias instaladas use `pipenv lock -r` y para verlas de manera jerárquica `pipenv graph`
+	- Para borrar el entorno use `pipenv --rm` y repita los pasos de "Configurar entorno virtual" 
 
+## Credenciales de prueba para la app 
+Username:kuldeep
+Password:ram12345
