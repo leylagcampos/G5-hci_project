@@ -1,0 +1,20 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block contentTitle %}
+Camas
+{% endblock contentTitle %}
+{% block content %}
+<div class="container">
+   <div class="row">
+    {% for bed in beds %}
+    <div class="
+                {% if bed.occupied == True %}
+                bg-danger 
+                {% elif bed.occupied == False %}
+                bg-success
+                {% endif %}
+                grid-box my-2 mx-2 py-3 px-3 text-white">{{ bed }}
+            </div>
+    {% endfor %}
+</div>
+{% endblock content %}

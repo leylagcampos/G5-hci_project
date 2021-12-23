@@ -53,27 +53,4 @@ Panel
     </div>
 </div>
 
-
-<div class="container">
-    <h3 class="font-weight-bold my-3">Beds availability</h3>
-</div>
-<div class="row">
-    <!-- .bg-success.grid-box.my-2.mx-2  -->
-    {% comment %} <div class="bg-success grid-box my-2 mx-2 py-3 px-3"> {% endcomment %}
-        {% comment %} </div> {% endcomment %}
-
-    {% for bed in beds %}
-    <div class="
-                
-                
-                {% if bed.occupied == True %}
-                bg-danger 
-                {% elif bed.occupied == False %}
-                bg-success
-                {% endif %}
-                grid-box my-2 mx-2 py-3 px-3 text-white">{{ bed }}
-                <i class="fas fa-bed fa-2x text-white-300"></i>
-            </div>
-    {% endfor %}
-</div>
 {% endblock content %}

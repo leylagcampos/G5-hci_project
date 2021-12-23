@@ -67,7 +67,6 @@
       Bienvenido {{user.first_name}}
     </p>
     
-
     <!-- refirect dashboard -->
     <p class="text-gray font-weight-bold px-3 pb-4 mb-0">
       <a href="{% url 'dashboard' %}" class="nav-link text-white">
@@ -88,14 +87,13 @@
       </li>
 
       {% endif %}
-      <!--
+      
       <li class="nav-item">
-        <a href="{% url 'info' %}" class="nav-link text-white">
-          <i class="fa fa-plus mr-3 text-primary fa-fw"></i>Info
+        <a href="{% url 'bed_list' %}" class="nav-link text-white">
+          <i class="fa fa-bed mr-3 text-primary fa-fw"></i>Camas disponibles
         </a>
       </li>
-    -->
-
+    
       {% if request.user.is_authenticated == False %}
       <li class="nav-item">
         <a href="{% url 'login' %}" class="nav-link text-white">
@@ -118,7 +116,7 @@
     <button id="sidebarCollapse" class="btn btn-light bg-dark rounded-pill shadow-sm px-4 mb-4" type="button">
       <i class="fa fa-bars mr-2 text-primary"></i>
       <small class="font-weight-bold text-primary">
-        Toggle
+        Menu
       </small>
     </button>
 
