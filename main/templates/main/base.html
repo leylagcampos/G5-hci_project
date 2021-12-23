@@ -62,11 +62,11 @@
       </div>
     </div>
 
-    <!-- greeting 
+    <!-- greeting -->
     <p class="text-white font-weight-bold px-3 pb-4 mb-0">
-      Hello {{user.first_name}}
+      Bienvenido {{user.first_name}}
     </p>
-    -->
+    
 
     <!-- refirect dashboard -->
     <p class="text-gray font-weight-bold px-3 pb-4 mb-0">
@@ -105,7 +105,7 @@
       {% else %}
       <li class="nav-item">
         <a href="{% url 'logout' %}" class="nav-link text-white">
-          <i class="fa fa-sign-out-alt mr-3 text-primary fa-fw"></i>Logout
+          <i class="fa fa-sign-out-alt mr-3 text-primary fa-fw"></i>Salir
         </a>
       </li>
       {% endif %}

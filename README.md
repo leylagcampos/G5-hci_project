@@ -1,8 +1,8 @@
-# _Covid19 hospital management_
+# Web Gestion de Hospital
 
 
 <!-- about us & view patient -->
-### Tech Stack
+### Tecnologías
 - Frontend
 	- HTML5
 	- CSS3
@@ -33,5 +33,4 @@
 	- Para borrar el entorno use `pipenv --rm` y repita los pasos de "Configurar entorno virtual" 
 
 ## Credenciales de prueba para la app 
-Username:kuldeep
-Password:ram12345
+- preguntame
