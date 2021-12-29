@@ -1,0 +1,15 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<form class="form" method="post">
+  {% csrf_token %}
+  <div class="container">
+    <h2>¿Estás seguro que quieres eliminar este paciente? </h2>
+    <button type="submit" class="btn btn-success">Si, eliminar</button>
+    <a href="/patient_list" class="btn btn-secondary">Cancelar</a>
+  </div>
+</form>
+{% endblock content %}

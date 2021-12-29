@@ -6,7 +6,7 @@ body{
 }
 
 .vertical-nav{
-    background: #ff6464 !important;
+    background: #64bfffe6 !important;
     min-width: 17rem;
     height: 100vh;
     position: fixed;
@@ -41,7 +41,7 @@ body{
 }
 
 .nav-link:hover{
-    background: #5a01f5ee;
+    background: #f7da59b7;
 }
 
 .text-primary{
@@ -124,6 +124,12 @@ border-left: 0.25rem solid #f6c23e !important;
 
 #id_bed_num{
         margin-right: 0.5rem;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #4e73df;
+}
+#id_enfermedad{
+    margin-right: 0.5rem;
     border: none;
     outline: none;
     border-bottom: 2px solid #4e73df;

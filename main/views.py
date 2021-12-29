@@ -60,9 +60,15 @@ def bed_list(request):
     context = {'beds':beds}
     return render(request, 'main/bed_list.html', context)   
 
+def doctor_list(request):
+    doctors = Doctor.objects.all()
+    context = {'doctors':doctors}
+    return render(request, 'main/doctor_list.html', context)
+
 def add_patient(request):
     beds = Bed.objects.filter(occupied=False)
     doctors = Doctor.objects.all()
+    enfermedads=Enfermedad.objects.all()
     if request.method == "POST":
         name = request.POST['name']
         phone_num = request.POST['phone_num']
@@ -72,13 +78,16 @@ def add_patient(request):
         status = request.POST['status']
         doctor = request.POST['doctor']
         doctor = Doctor.objects.get(name=doctor)
+        enfermedad = request.POST['enfermedad']
+        enfermedad = Enfermedad.objects.get(name=enfermedad)
         patient = Patient.objects.create(
         name = name,
         phone_num = phone_num, 
         address = address, 
         bed_num = bed_num,
         doctor=doctor,
-        status = status
+        status = status,
+        enfermedad=enfermedad
         )
         patient.save()
 
@@ -90,9 +99,26 @@ def add_patient(request):
         
     context = {
         'beds': beds,
-        'doctors': doctors
+        'doctors': doctors,
+        'enfermedads':enfermedads
     }
     return render(request, 'main/add_patient.html', context)
+
+
+def delete_patient(request,pk):
+    patient = Patient.objects.get(id=pk)
+    bed = Bed.objects.get(bed_number=patient.bed_num)
+    if request.method == "POST":
+        bed.occupied = False
+        bed.save()
+        patient.delete() 
+        return redirect("patient_list")
+        
+    context = {
+        'patient': patient,
+        'bed':bed
+    }
+    return render(request, 'main/delete_patient.html', context)
 
 def patient(request, pk):
     patient = Patient.objects.get(id=pk)
@@ -112,6 +138,7 @@ def patient(request, pk):
         print(patient.doctors_notes)
         patient.status = status
         patient.save()
+        return redirect("patient_list")
     context = {
         'patient': patient
     }
@@ -131,8 +158,22 @@ def patient_list(request):
     }
 
     return render(request, 'main/patient_list.html', context)
-
+    
 '''
+def consulta(request):
+    patients = Patient.objects.all()
+
+    # filtering
+    myFilter = PatientFilter(request.GET, queryset=patients)
+
+    patients = myFilter.qs
+    context = {
+        'patients': patients,
+        'myFilter': myFilter
+    }
+
+    return render(request, 'main/consulta.html', context)
+
 def autocomplete(request):
     if patient in request.GET:
         name = Patient.objects.filter(name__icontains=request.GET.get(patient))

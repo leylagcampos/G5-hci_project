@@ -1,0 +1,34 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block contentTitle %}
+Lista de doctores
+{% endblock contentTitle %}
+{% block content %}
+<div class="table-responsive mt-3">
+    <table class="table table-hover">
+        <thead>
+            <th>
+                <h3>Nombre</h3>
+            </th>
+            <th>
+                <h3>Especialidad</h3>
+            </th>
+            
+        </thead>
+
+        <tbody>
+            {% for doctor in doctors %}
+            <tr class="mx-auto">
+                <td scope="row">
+                    <h5>{{ doctor.name}}</h5>
+                </td>
+                <td scope="row">
+                    <h5>{{ doctor.especialidad}}</h5>
+                </td>
+                    
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock content %}

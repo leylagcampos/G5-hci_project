@@ -51,10 +51,13 @@
         <div class="media-body text-white">
           {% if request.user.is_authenticated %}
           <p class="font-weight-normal mb-0">
-            Rol: {% if request.user.is_superuser == True %}
+            Rol: 
+            {% if request.user.is_superuser == True %}
             Admin
             {% elif request.user.is_superuser == False and request.user.is_staff == True %}
             Staff
+            {% elif request.user.is_superuser == False and request.user.is_staff == False %}
+            Doctor
             {% endif %}
           </p>
           {% endif %}
@@ -85,7 +88,11 @@
           <i class="fa fa-plus mr-3 text-primary fa-fw"></i>Agregar pacientes asegurados
         </a>
       </li>
-
+      <li class="nav-item">
+        <a href="{% url 'doctor_list' %}" class="nav-link text-white">
+          <i class="fa fa-user-md mr-3 text-primary fa-fw"></i>Lista de doctores
+        </a>
+      </li>
       {% endif %}
       
       <li class="nav-item">
@@ -93,7 +100,7 @@
           <i class="fa fa-bed mr-3 text-primary fa-fw"></i>Camas disponibles
         </a>
       </li>
-    
+
       {% if request.user.is_authenticated == False %}
       <li class="nav-item">
         <a href="{% url 'login' %}" class="nav-link text-white">
