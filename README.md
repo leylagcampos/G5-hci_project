@@ -28,8 +28,7 @@
 3. Ejecute el siguiente comando: `python manage.py runserver`.
 4. Abra `127.0.0.1::8000` en su navegador.
 #### Observaciones y Comandos de pipenv :
-	- Si tiene varias versiones le aparecerá la ultima que instaló.No es un problema,pero tambien debe tener la version 3.8.2 para activar el entorno virtual de este proyecto.
-	- Verificar la version de python con `python --version`
+	- Verificar la version de python con `python --version`.Si tiene varias versiones le aparecerá la ultima que instaló.No es un problema,pero tambien debe tener la version 3.8.2 para activar el entorno virtual de este proyecto.
 	- Si el comando pipenv no funciona,instalelo con el siguiente comando : `pip3 install pipenv`.
 	- Si desea salir del entorno virtual ejecute `exit`,para volver a entrar solo use `pipenv shell`
 	- Para ver dependencias instaladas use `pipenv lock -r` y para verlas de manera jerárquica `pipenv graph`

@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block contentTitle %}
-Agregar Paciente
+Agregar Paciente <i class="fa fa-plus"></i>
 {% endblock contentTitle %}
 
 {% block content %}
@@ -14,20 +14,29 @@ Agregar Paciente
         <div class="patient-form ">
             <div class="row">
                 <div class="form-field col-md-6">
-                    <input type="text" id="name" class="input-text" type="text" name="name" placeholder="Name">
+                    <h6>DNI del paciente</h6>
+                    <input type="text" id="dni" class="input-text" type="text" name="dni" placeholder="Escriba los 8 digitos de su dni">
                 </div>
 
                 <div class="form-field col-md-6">
+                    <h6>Nombre del paciente:</h6>
+                    <input type="text" id="name" class="input-text" type="text" name="name" placeholder="Nombre">
+                </div>
+
+                <div class="form-field col-md-6">
+                    <h6>Celular del paciente:</h6>
                     <input type="text" id="phone_num" class="input-text" type="text" name="phone_num"
-                        placeholder="Phone no.">
+                        placeholder="900000000">
                 </div>
 
                 <div class="form-field col-md-6">
+                    <h6>Dirección del paciente:</h6>
                     <input type="text" id="patient_relative_contact" class="input-text" type="text" name="address"
-                        placeholder="Address">
+                        placeholder="Dirección">
                 </div>
 
                 <div class="form-field col-md-6">
+                    <h6>Doctor:</h6>
                     <select class="input-text" name="doctor" id="doctor">
                         {% for doctor in doctors %}
                         <option class="" value="{{doctor}}">{{doctor}}</option>
@@ -36,6 +45,7 @@ Agregar Paciente
                 </div>
 
                 <div class="form-field col-md-6">
+                    <h6>Enfermedad:</h6>
                     <select class="input-text" name="enfermedad" id="enfermedad">
                         {% for enfermedad in enfermedads %}
                         <option class="" value="{{enfermedad}}">{{enfermedad}}</option>
@@ -44,6 +54,7 @@ Agregar Paciente
                 </div>
 
                 <div class="form-field col-md-6">
+                    <h6>Estado:</h6>
                     <select class="input-text" name="status" id="status">
                         <option class="bg-danger text-white" value="Grave">Grave</option>
                         <option class="bg-warning text-white" value="En recuperación">En recuperación</option>
@@ -54,6 +65,7 @@ Agregar Paciente
                 </div>
 
                 <div class="form-field col-md-6">
+                    <h6>Cama n°:</h6>
                     <select class="input-text" name="bed_num" id="bed_num">
                         {% for bed in beds %}
                         <option value="{{bed}}">{{bed}}</option>

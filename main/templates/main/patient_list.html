@@ -1,23 +1,24 @@
 {% extends 'main/base.html' %}
 {% load static %}
 {% block contentTitle %}
-Lista de pacientes
+Lista de pacientes <i class="fa fa-address-card"></i>
 {% endblock contentTitle %}
 {% block content %}
-<!-- Topbar Search -->
+<!--Filtro o consulta-->
 <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search mb-3" method="GET"
     id="list">
     <div class="input-group">
         {{myFilter.form}}
         <div class="input-group-append">
-            <button class="btn btn-primary btn-block"  type="submit">
+            <button class="btn btn-primary btn-block" type="submit">
                 <i class="fas fa-search fa-sm"></i>
             </button>
         </div>
     </div>
 </form>
+<div class="container ">
 <div class="table-responsive mt-3">
-    <table class="table table-hover">
+    <table class="table table-hover ">
         <thead>
             <th>
                 <h3>Nombre</h3>
@@ -31,7 +32,11 @@ Lista de pacientes
             <th>
                 <h3>Doctor</h3>
             </th>
-            
+            <th>
+                <h3></h3>
+            </th>
+            <th>
+            </th>
         </thead>
 
         <tbody>
@@ -53,21 +58,15 @@ Lista de pacientes
                 {% if request.user.is_authenticated == True %}
 
                 <td><a href="/patient/{{patient.id}}" class="btn btn-purple">
-                    <i class="fa fa-edit"></i>
-
-                </a></td>
-            <td><a href="/delete_patient/{{patient.id}}" class="btn btn-danger">
-                    <i class="fa fa-trash"></i>
-                </a></td>
+                        <i class="fa fa-edit"></i> Editar
+                    </a></td>
+                <td><a href="/delete_patient/{{patient.id}}" class="btn btn-danger">
+                        <i class="fa fa-trash"></i> Eliminar
+                    </a></td>
                 {% endif %}
-
             </tr>
-
             {% endfor %}
-
         </tbody>
-    </table>
-
+    </table></div>
 </div>
-
 {% endblock content %}

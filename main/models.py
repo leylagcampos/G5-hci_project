@@ -3,6 +3,7 @@ from multiselectfield import MultiSelectField
 # Create your models here.
 
 class Patient(models.Model):
+    dni=models.CharField(max_length=8)
     name = models.CharField(max_length=50)
     phone_num = models.CharField(max_length=15)
     address = models.TextField()
@@ -11,9 +12,8 @@ class Patient(models.Model):
     doctor = models.ForeignKey("Doctor", on_delete=models.CASCADE, null=True)
     doctors_notes = models.TextField(null=True, blank=True)
     status = models.CharField(max_length=50)
-    #DNI=models.CharField(max_length=8)
     def __str__(self):
-        return self.name
+        return self.dni
         
 class Bed(models.Model):
     bed_number = models.CharField(max_length=50)

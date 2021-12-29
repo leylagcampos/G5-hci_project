@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block contentTitle %}
-{{patient.name}}
+Editar paciente {{patient.dni}}
 {% endblock contentTitle %}
 
 {% block content %}
@@ -11,58 +11,64 @@
 	<div class="container">
 		<div class="patient-form">
 			<div class="row">
-				<div class="col-md-6 form-field mt-4 mb-0">
-					<label for="mobile">
+				<div class="form-field col-md-6">
+					<label for="name" class="mb-0">
+						<h6>Nombre del paciente</h6>
+						<input type="text" id="name" class="input-text" type="text" name="name"
+							placeholder="nombre del paciente" value="{{patient.name}}">
+					</label>
+				</div>
+				<div class="form-field col-md-6">
+					<label for="phone_num" class="mb-0">
 						<h6>N° Celular Paciente</h6>
-						<input type="text" id="name" class="input-text" type="text" name="mobile"
-							placeholder="+51900000000" value="{{patient.phone_num}}">
+						<input type="text" id="phone_num" class="input-text" type="text" name="phone_num"
+							placeholder="900000000" value="{{patient.phone_num}}">
 					</label>
 				</div>
 
-				<div class="col-md-6 form-field mt-0">
-					<label for="address" class="mb-0 mt-0">
+				<div class="form-field col-md-6">
+					<label for="address" class="mb-0">
 						<h6>Dirección</h6>
 					</label>
-					<input type="address" class="input-text" id="location" placeholder="dirección" name="location"
-						title="enter a location" value="{{patient.address}}" />
+					<input type="address" class="input-text" id="location" placeholder="dirección" name="location" value="{{patient.address}}" />
 				</div>
-				
-				<div class="col-md-6">
-					<h6>Bed number</h6>
+
+				<div class="form-field col-md-6">
+					<label for="status" class="mb-0">
+						<h6>Estado</h6>
+					</label>
+					<input type="text" class="input-text" name="status" id="status"
+						placeholder="Recuperado/Fallecido/En recuperación/Grave" value="{{patient.status}}" />
+				</div>
+
+				<div class="form-field  col-md-6">
+					<label for="doctor" class="mb-0">
+						<h6>Doctor asignado: </h6>
+					</label>
+					<!--<input type="text" class="input-text" name="doctor" id="doctor" value="{{patient.doctor}}" />-->
+					<h4>{{patient.doctor}}</h4>
+				</div>
+				<div class="form-field  col-md-6">
+					<label for="doctor_notes" class="mb-0 mt-4">
+						<h6>Notas del Doctor: </h6>
+					</label>
+					<textarea class="input-text" name="doctor_notes" id="doctor_notes"
+						{{patient.doctors_notes}}>{{patient.doctors_notes}}</textarea>
+				</div>
+				<div class="form-field  col-md-6">
+					<label for="enfermedad" class="mb-0">
+						<h6>Enfermedad </h6>
+					</label>
+					<!--<input type="text" class="input-text" name="enfermedad" id="enfermedad"
+						value="{{patient.enfermedad}}" /> -->
+					<h4>{{patient.enfermedad}}</h4>
+				</div>
+				<div class="form-field col-md-6">
+					<h6>N° Cama: </h6>
 					<label for="bed_num" class="mb-0">
 						<h4>{{patient.bed_num}}</h4>
 					</label>
 				</div>
-
-				<div class="col-md-6">
-					<h6>Enfermedad</h6>
-					<label for="enfermedad" class="mb-0">
-						<h4>{{patient.enfermedad}}</h4>
-					</label>
-				</div>
-
-				<div class="col-md-6">
-					<label for="status" class="mb-0">
-						<h6>Status</h6>
-					</label>
-					<input type="text" class="input-text" name="status" id="status" value="{{patient.status}}" />
-				</div>
-
-				<div class="col-md-6">
-					<label for="doctor" class="mb-0">
-						<h6>Doctor Assigned: </h6>
-					</label>
-					<input type="text" class="input-text" name="doctor" id="doctor" value="{{patient.doctor}}" />
-				</div>
-				<div class="col-md-6">
-					<label for="doctor_notes" class="mb-0 mt-4">
-						<h6>Doctor Notes: </h6>
-					</label>
-					<!-- <label for="bed_num"> -->
-					<textarea class="input-text" name="doctor_notes" id="doctor_notes"
-						{{patient.doctors_notes}}>{{patient.doctors_notes}}</textarea>
-				</div>
-
 			</div>
 		</div>
 	</div>
@@ -73,8 +79,6 @@
 			<button class="btn btn-lg btn-success btn-block mx-auto" type="submit">
 				<i class="glyphicon glyphicon-ok-sign"></i> Guardar
 			</button>
-
-
 		</div>
 	</div>
 </form>

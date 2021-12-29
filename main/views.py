@@ -75,6 +75,7 @@ def add_patient(request):
     doctors = Doctor.objects.all()
     enfermedads=Enfermedad.objects.all()
     if request.method == "POST":
+        dni = request.POST['dni']
         name = request.POST['name']
         phone_num = request.POST['phone_num']
         address = request.POST['address']
@@ -86,6 +87,7 @@ def add_patient(request):
         enfermedad = request.POST['enfermedad']
         enfermedad = Enfermedad.objects.get(name=enfermedad)
         patient = Patient.objects.create(
+        dni=dni,   
         name = name,
         phone_num = phone_num, 
         address = address, 
@@ -127,26 +129,34 @@ def delete_patient(request,pk):
 
 def patient(request, pk):
     patient = Patient.objects.get(id=pk)
+    
     if request.method == "POST":
-        doctor = request.POST['doctor']
-        doctor_notes = request.POST['doctor_notes']
-        mobile = request.POST['mobile']
+        name = request.POST['name']
+        phone_num = request.POST['phone_num']
         address  = request.POST['location']
-        print(doctor_notes)
         status = request.POST['status']
+        doctor_notes = request.POST['doctor_notes']
+        '''
+        doctor = request.POST['doctor']
         doctor = Doctor.objects.get(name=doctor)
-        print(doctor)
-        patient.phone_num = mobile
-        patient.address = address
+        enfermedad = request.POST['enfermedad']
+        enfermedad = Enfermedad.objects.get(name=enfermedad)
+
         patient.doctor = doctor
+        patient.enfermedad=enfermedad
+        '''  
+        patient.name=name
+        patient.phone_num = phone_num
+        patient.address = address
         patient.doctors_notes = doctor_notes
         print(patient.doctors_notes)
         patient.status = status
         patient.save()
+        
         return redirect("patient_list")
     context = {
-        'patient': patient
-    }
+        'patient': patient,
+     }
     return render(request, 'main/patient.html', context)
 
 

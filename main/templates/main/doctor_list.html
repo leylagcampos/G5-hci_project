@@ -1,7 +1,7 @@
 {% extends 'main/base.html' %}
 {% load static %}
 {% block contentTitle %}
-Lista de doctores
+Lista de doctores <i class="fa fa-user-md"></i>
 {% endblock contentTitle %}
 {% block content %}
 <div class="table-responsive mt-3">
@@ -20,6 +20,7 @@ Lista de doctores
             {% for doctor in doctors %}
             <tr class="mx-auto">
                 <td scope="row">
+                    
                     <h5>{{ doctor.name}}</h5>
                 </td>
                 <td scope="row">
