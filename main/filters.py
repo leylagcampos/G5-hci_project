@@ -6,7 +6,7 @@ from .models import *
 class PatientFilter(django_filters.FilterSet):
     class Meta:
         model = Patient
-        # fields = ['name', 'bed_num', 'status']
-        fields = '__all__'
-        exclude = ['phone_num', 'address','doctors_notes']
+        fields = ['bed_num']
+        #fields = '__all__'
+        #exclude = ['phone_num', 'address','doctors_notes']
         

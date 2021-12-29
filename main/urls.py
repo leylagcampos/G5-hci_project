@@ -15,5 +15,6 @@ urlpatterns = [
     #path("consulta/", views.consulta, name="consulta"),
     path("delete_patient/<str:pk>", views.delete_patient, name="delete_patient"),
     path("doctor_list/", views.doctor_list, name="doctor_list"),
+    path("enfm_list/", views.enfm_list, name="enfm_list"),
 
 ]

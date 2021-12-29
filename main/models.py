@@ -11,7 +11,7 @@ class Patient(models.Model):
     doctor = models.ForeignKey("Doctor", on_delete=models.CASCADE, null=True)
     doctors_notes = models.TextField(null=True, blank=True)
     status = models.CharField(max_length=50)
-    
+    #DNI=models.CharField(max_length=8)
     def __str__(self):
         return self.name
         

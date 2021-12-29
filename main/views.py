@@ -65,6 +65,11 @@ def doctor_list(request):
     context = {'doctors':doctors}
     return render(request, 'main/doctor_list.html', context)
 
+def enfm_list(request):
+    enfermedads = Enfermedad.objects.all()
+    context = {'enfermedads':enfermedads}
+    return render(request, 'main/enfm_list.html', context)
+
 def add_patient(request):
     beds = Bed.objects.filter(occupied=False)
     doctors = Doctor.objects.all()
